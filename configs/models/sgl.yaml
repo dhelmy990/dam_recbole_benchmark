@@ -1,0 +1,33 @@
+# SGL (Self-supervised Graph Learning) Configuration
+# Paper: Self-supervised Graph Learning for Recommendation (SIGIR 2021)
+# Model Type: General / Contrastive Learning
+
+# Model architecture (based on LightGCN backbone)
+embedding_size: 64
+n_layers: 3
+
+# Contrastive learning settings
+type: ED  # ED: Edge Dropout, ND: Node Dropout, RW: Random Walk
+ssl_tau: 0.2
+ssl_weight: 0.1
+drop_ratio: 0.1
+
+# Regularization
+reg_weight: 1e-4
+
+# Optimizer settings
+learning_rate: 0.001
+weight_decay: 0.0
+
+# Training
+train_batch_size: 2048
+
+# Loss function
+loss_type: BPR
+
+# Negative sampling (required for BPR loss)
+train_neg_sample_args:
+  distribution: uniform
+  sample_num: 1
+  alpha: 1.0
+  dynamic: False

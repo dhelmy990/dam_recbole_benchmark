@@ -1,0 +1,4 @@
+# Install with: pip install -r requirements-pip.txt
+# Run AFTER installing conda requirements
+recbole>=1.1.1
+ray[tune]>=2.0.0

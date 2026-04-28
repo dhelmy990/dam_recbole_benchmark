@@ -1,0 +1,36 @@
+# Base configuration for all experiments
+# RecBole Benchmarking Framework
+
+# Environment
+seed: 42
+reproducibility: True
+state: INFO
+data_path: dataset/
+checkpoint_dir: saved/
+show_progress: True
+
+# Training settings
+epochs: 100
+train_batch_size: 2048
+eval_batch_size: 4096
+stopping_step: 10
+clip_grad_norm: null
+
+# Evaluation settings
+eval_args:
+  split: {'RS': [0.8, 0.1, 0.1]}
+  group_by: user
+  order: RO
+  mode: full
+
+metrics: ['Recall', 'NDCG']
+topk: [10]
+valid_metric: Recall@10
+metric_decimal_place: 4
+
+# Device settings
+device: cuda
+use_gpu: True
+
+# Logging
+log_wandb: False

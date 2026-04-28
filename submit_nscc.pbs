@@ -1,0 +1,82 @@
+#!/bin/bash
+#PBS -N recbole_benchmark
+#PBS -q gpu
+#PBS -l select=1:ncpus=8:mem=32gb:ngpus=1
+#PBS -l walltime=12:00:00
+#PBS -j oe
+#PBS -o logs/nscc_output.log
+
+# ============================================
+# RecBole Benchmarking - NSCC Submission Script
+# ============================================
+# Submit with: qsub submit_nscc.pbs
+# Check status: qstat -u $USER
+# ============================================
+
+# Change to project directory
+cd $PBS_O_WORKDIR
+
+# Create log directory if not exists
+mkdir -p logs results/metrics results/figures results/logs
+
+echo "=========================================="
+echo "Job started at: $(date)"
+echo "Running on node: $(hostname)"
+echo "Working directory: $(pwd)"
+echo "=========================================="
+
+# Load modules (adjust based on your NSCC setup)
+module purge
+module load anaconda3
+# module load cuda/11.8  # Uncomment if needed
+
+# Activate conda environment
+source $(conda info --base)/etc/profile.d/conda.sh
+conda activate recbole_bench
+
+# Disable user site-packages to avoid conflicts
+export PYTHONNOUSERSITE=1
+
+# Set CUDA device
+export CUDA_VISIBLE_DEVICES=0
+
+echo ""
+echo "Python: $(which python)"
+echo "PyTorch CUDA: $(python -c 'import torch; print(torch.cuda.is_available())')"
+echo ""
+
+# ============================================
+# Run experiments
+# ============================================
+
+echo "Starting experiments..."
+
+# Option 1: Run ALL experiments (sparsity + sensitivity + plots)
+python scripts/run_all_experiments.py \
+    --models SASRec LightGCN SGL \
+    --datasets ml-100k amazon-beauty \
+    --n_runs 1 \
+    --output_dir results
+
+# Option 2: Run only sparsity analysis (uncomment if needed)
+# python -m src.experiments.sparsity_analysis \
+#     --models SASRec LightGCN SGL \
+#     --datasets ml-100k amazon-beauty \
+#     --ratios 1.0 0.8 0.6 0.4 \
+#     --n_runs 1
+
+# Option 3: Run only sensitivity study (uncomment if needed)
+# python -m src.experiments.sensitivity_study \
+#     --models SASRec LightGCN SGL \
+#     --datasets ml-100k amazon-beauty \
+#     --embedding_sizes 32 64 128 \
+#     --n_runs 1
+
+# Generate final report and plots
+python scripts/generate_report.py --output_dir results
+
+echo ""
+echo "=========================================="
+echo "Job completed at: $(date)"
+echo "Results saved to: results/"
+echo "=========================================="

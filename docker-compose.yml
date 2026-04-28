@@ -1,0 +1,76 @@
+# Docker Compose for RecBole Benchmarking
+# Allows easy orchestration of experiments
+
+version: '3.8'
+
+services:
+  benchmark:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: recbole-benchmark
+    volumes:
+      - ./results:/app/results
+      - ./dataset:/app/dataset
+      - ./configs:/app/configs
+    environment:
+      - PYTHONPATH=/app
+      - CUDA_VISIBLE_DEVICES=0
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    command: python scripts/run_all_experiments.py --n_runs 3
+
+  # Individual model experiments
+  sasrec-ml100k:
+    build: .
+    volumes:
+      - ./results:/app/results
+      - ./dataset:/app/dataset
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    command: python main.py --model SASRec --dataset ml-100k
+
+  lightgcn-ml100k:
+    build: .
+    volumes:
+      - ./results:/app/results
+      - ./dataset:/app/dataset
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    command: python main.py --model LightGCN --dataset ml-100k
+
+  sgl-ml100k:
+    build: .
+    volumes:
+      - ./results:/app/results
+      - ./dataset:/app/dataset
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    command: python main.py --model SGL --dataset ml-100k
+
+  # Visualization only (CPU)
+  visualize:
+    build: .
+    volumes:
+      - ./results:/app/results
+    command: python scripts/generate_report.py --output_dir results

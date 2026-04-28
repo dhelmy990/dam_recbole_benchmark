@@ -1,0 +1,30 @@
+﻿Goal and scope
+In this course project, your group will apply data mining and analytics methods to a real-world task. You may choose any topic, as long as you (1) use techniques learned in the course or clearly related methods, (2) work on real data (public datasets are fine), and (3) provide evidence through experiments, analysis, and discussion. The project should demonstrate a correct problem formulation, a careful methodology, and clear communication of results.
+Team size and teamwork responsibilities
+Each group may have up to four students. Teamwork is part of the assessment. Every team member is responsible for the following.
+First, ensure that all members work together and that everyone is involved and contributes to the project.
+Second, ensure sufficient coordination and communication within the team. If a team member fails to contribute due to insufficient communication and coordination, the entire team will face penalties.
+Third, report issues early. If a team member refuses to contribute, the team must notify the instructor via email as soon as possible and at least four weeks prior to the submission deadline. If the team cannot report the issue at least four weeks prior to the deadline, this indicates a lack of communication and coordination, and the instructor will not address the issue.
+In your report, the group must include a short “Contributions” section where all members agree on a summary of individual contributions. This section must list each member and describe what they did (for example: data collection and cleaning, model implementation, experiments, evaluation, writing, or video production).  The Git history for the code and the report can be submitted together and used as evidence of the contribution.  
+Deliverables and submission time
+Your group will submit three items.
+A written report that describes the task, methods, experiments, and conclusions.
+A well-maintained code repository (GitHub, GitLab) includes the development history, runnable code with clear instructions for reproducing key results.
+A 10 to 20-minute video that presents the problem, approach, main results, and takeaways.
+The deadline for project submission is one week prior to the final exam (the exact date follows the official exam schedule). Submissions must be complete and ready to evaluate at the time of submission.
+Example Project Types:
+You can choose any topic, as long as you do real mining work and present a strong evaluation. Here are some example topics:
+Benchmarking projects: select a topic learned from the course, such as clustering, similarity search, group mining, or other related topics. Survey and benchmark multiple methods, run fair experiments, and draw conclusions. For this type of project, the group size is limited to two students. You should include state-of-the-art methods from recent research papers and evaluate them on at least three datasets.
+Method or application projects: study a real-life data mining problem (Kaggle is allowed for inspiration, while you should also compare your work with the public solutions). Apply existing methods and provide insight, or propose improvements, such as enhanced features, refined training procedures, model modifications, or meticulous fine-tuning, as long as the changes are well-motivated and validated by experiments.
+Every group should submit their tentative topic and project type when submitting the grouping form.  
+Report quality expectations
+A good report should meet the requirements well and be well-organized, with a sensible structure. It should clearly explain the task setting, datasets, and methods, and present a comprehensive and in-depth analysis. Results should include clear and insightful comparisons, supported by appropriate evaluation metrics and strong baselines. Your discussion should go beyond reporting numbers: explain why methods work or fail, what assumptions matter, and what you would change next.
+Your report should include good visualizations for analysis, such as plots that show trends, trade-offs, and error patterns. Strong projects often target challenging datasets, applications, or methods, or they target practical applications with realistic constraints. You are encouraged to discuss or implement possible solutions that improve the methods and to justify these choices with experimental evidence.
+The submission should be in PDF format, with a font size of 11pt and reasonable spacing.  You can also directly use a single-column LaTeX/Word template from an organizer like ACM or IEEE, such as \documentclass[acmsmall,nonacm]{acmart}
+Reproducibility expectations for code
+Your code must be runnable and well-documented. Provide a README that states environment requirements, how to obtain data, and how to reproduce the main results (tables and figures).  If possible, deploy all your experiments with containers such that anyone can reproduce them without worrying about the environment. If datasets have restrictions, do not upload them; instead, provide a script and instructions on how to access them legally.
+Video expectations (10-20 minutes)
+The video should clearly present the problem, data, method, and main findings. It should include at least one clear result figure or table and a brief explanation of what you learned. The video must be consistent with the report and code.
+Additional bonus for publication potential
+If the project leads to a publication or has strong potential for publication, it may receive extra points. This bonus will be determined by the lecturer and, where appropriate, subject to external review.
+

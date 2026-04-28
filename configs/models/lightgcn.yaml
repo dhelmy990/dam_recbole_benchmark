@@ -1,0 +1,27 @@
+# LightGCN Configuration
+# Paper: LightGCN: Simplifying and Powering Graph Convolution Network (SIGIR 2020)
+# Model Type: General / Graph-based
+
+# Model architecture
+embedding_size: 64
+n_layers: 3
+
+# Regularization
+reg_weight: 1e-4
+
+# Optimizer settings
+learning_rate: 0.001
+weight_decay: 0.0
+
+# Training
+train_batch_size: 2048
+
+# Loss function (BPR loss is default for LightGCN)
+loss_type: BPR
+
+# Negative sampling (required for BPR loss)
+train_neg_sample_args:
+  distribution: uniform
+  sample_num: 1
+  alpha: 1.0
+  dynamic: False
