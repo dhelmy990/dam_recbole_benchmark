@@ -5,6 +5,10 @@ import json
 import glob
 from typing import Dict, List, Optional, Tuple
 
+# Clear MPLBACKEND env var before importing matplotlib (fixes Colab conflict)
+if 'MPLBACKEND' in os.environ:
+    del os.environ['MPLBACKEND']
+
 # Set non-interactive backend before importing pyplot (for headless/Colab)
 import matplotlib
 matplotlib.use('Agg')
