@@ -4,8 +4,13 @@ import os
 import json
 import glob
 from typing import Dict, List, Optional, Tuple
+
+# Set non-interactive backend before importing pyplot (for headless/Colab)
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
+
 import numpy as np
 import pandas as pd
 from collections import defaultdict
@@ -31,7 +36,15 @@ class ResultsVisualizer:
             'SGL': '^'
         }
 
-        plt.style.use('seaborn-v0_8-whitegrid')
+        # Use a compatible style (fallback if not available)
+        try:
+            plt.style.use('seaborn-v0_8-whitegrid')
+        except OSError:
+            try:
+                plt.style.use('seaborn-whitegrid')
+            except OSError:
+                pass  # Use default style
+
         plt.rcParams.update({
             'font.size': 12,
             'axes.labelsize': 14,
