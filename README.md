@@ -197,12 +197,10 @@ Datasets are downloaded automatically by RecBole on first run.
 
 ## Team Contributions
 
-*To be filled by team members*
-
 | Member | Contributions |
 |--------|--------------|
-| Member 1 | |
-| Member 2 | |
+| Diego Adriel Helmy | Equal |
+| Lam Yik Ting | Equal |
 
 ## License
 
@@ -210,7 +208,7 @@ This project is for educational purposes as part of the Data Mining course.
 
 ## References
 
-1. Kang & McAuley. "Self-Attentive Sequential Recommendation." ICDM 2018.
+1. Rendle et al. "BPR: Bayesian Personalized Ranking from Implicit Feedback" UAI 2009.
 2. He et al. "LightGCN: Simplifying and Powering Graph Convolution Network for Recommendation." SIGIR 2020.
 3. Wu et al. "Self-supervised Graph Learning for Recommendation." SIGIR 2021.
 4. Zhao et al. "RecBole: Towards a Unified, Comprehensive and Efficient Framework for Recommendation Algorithms." CIKM 2021.
