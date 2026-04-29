@@ -1,5 +1,5 @@
 # Usage
-main.ipynb is a simple sequential implementation of the experiments that was run on google colab with an A100 GPU, and can be used as a simple entry point
+main.ipynb is a simple sequential implementation of the experiments that was run on google colab with an A100 GPU, and can be used as a simple entry point. Simply download the ipynb and run it from start to end.
 
 # RecBole Benchmarking: BPR vs LightGCN vs SGL
 
