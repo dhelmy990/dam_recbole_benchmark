@@ -252,7 +252,7 @@ def main():
 
     parser = argparse.ArgumentParser(description='Data Sparsity Analysis')
     parser.add_argument('--models', nargs='+', default=['SASRec', 'LightGCN', 'SGL'])
-    parser.add_argument('--datasets', nargs='+', default=['ml-100k', 'amazon-beauty'])
+    parser.add_argument('--datasets', nargs='+', default=['ml-100k', 'amazon-beauty', 'steam'])
     parser.add_argument('--ratios', nargs='+', type=float, default=[1.0, 0.8, 0.6, 0.4])
     parser.add_argument('--config_dir', type=str, default='configs')
     parser.add_argument('--output_dir', type=str, default='results')

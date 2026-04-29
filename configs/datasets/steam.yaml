@@ -1,0 +1,34 @@
+# Steam Dataset Configuration
+# Video game recommendations from Steam platform
+# Commonly used benchmark for recommendation systems
+
+# Dataset identifier
+dataset: steam
+
+# Data loading
+load_col:
+  inter: [user_id, item_id, play_time]
+
+# Field configuration
+USER_ID_FIELD: user_id
+ITEM_ID_FIELD: item_id
+RATING_FIELD: play_time
+TIME_FIELD: ~
+
+# Filtering (implicit feedback - users who played the game)
+val_interval:
+  play_time: "[1,inf)"
+
+# Data processing
+min_user_inter_num: 5
+min_item_inter_num: 5
+
+# Sequential model settings
+MAX_ITEM_LIST_LENGTH: 50
+
+# Evaluation
+eval_args:
+  split: {'RS': [0.8, 0.1, 0.1]}
+  group_by: user
+  order: RO
+  mode: full

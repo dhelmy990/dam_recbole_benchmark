@@ -27,7 +27,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Run all benchmark experiments')
     parser.add_argument('--models', nargs='+', default=['SASRec', 'LightGCN', 'SGL'],
                         help='Models to benchmark')
-    parser.add_argument('--datasets', nargs='+', default=['ml-100k', 'amazon-beauty'],
+    parser.add_argument('--datasets', nargs='+', default=['ml-100k', 'amazon-beauty', 'steam'],
                         help='Datasets to use')
     parser.add_argument('--config_dir', type=str, default='configs',
                         help='Configuration directory')

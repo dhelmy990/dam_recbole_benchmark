@@ -22,8 +22,8 @@ def parse_args():
                         choices=['SASRec', 'LightGCN', 'SGL'],
                         help='Model to train: SASRec, LightGCN, or SGL')
     parser.add_argument('--dataset', type=str, required=True,
-                        choices=['ml-100k', 'amazon-beauty'],
-                        help='Dataset to use: ml-100k or amazon-beauty')
+                        choices=['ml-100k', 'amazon-beauty', 'steam'],
+                        help='Dataset to use: ml-100k, amazon-beauty, or steam')
     parser.add_argument('--config_dir', type=str, default='configs',
                         help='Directory containing configuration files')
     parser.add_argument('--output_dir', type=str, default='results',

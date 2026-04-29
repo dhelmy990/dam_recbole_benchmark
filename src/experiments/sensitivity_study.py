@@ -230,7 +230,7 @@ def main():
 
     parser = argparse.ArgumentParser(description='Embedding Size Sensitivity Study')
     parser.add_argument('--models', nargs='+', default=['SASRec', 'LightGCN', 'SGL'])
-    parser.add_argument('--datasets', nargs='+', default=['ml-100k', 'amazon-beauty'])
+    parser.add_argument('--datasets', nargs='+', default=['ml-100k', 'amazon-beauty', 'steam'])
     parser.add_argument('--embedding_sizes', nargs='+', type=int, default=[32, 64, 128])
     parser.add_argument('--config_dir', type=str, default='configs')
     parser.add_argument('--output_dir', type=str, default='results')

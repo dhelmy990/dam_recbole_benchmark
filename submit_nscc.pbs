@@ -2,7 +2,7 @@
 #PBS -N recbole_benchmark
 #PBS -q gpu
 #PBS -l select=1:ncpus=8:mem=32gb:ngpus=1
-#PBS -l walltime=12:00:00
+#PBS -l walltime=18:00:00
 #PBS -j oe
 #PBS -o logs/nscc_output.log
 
@@ -54,21 +54,21 @@ echo "Starting experiments..."
 # Option 1: Run ALL experiments (sparsity + sensitivity + plots)
 python scripts/run_all_experiments.py \
     --models SASRec LightGCN SGL \
-    --datasets ml-100k amazon-beauty \
+    --datasets ml-100k amazon-beauty steam \
     --n_runs 1 \
     --output_dir results
 
 # Option 2: Run only sparsity analysis (uncomment if needed)
 # python -m src.experiments.sparsity_analysis \
 #     --models SASRec LightGCN SGL \
-#     --datasets ml-100k amazon-beauty \
+#     --datasets ml-100k amazon-beauty steam \
 #     --ratios 1.0 0.8 0.6 0.4 \
 #     --n_runs 1
 
 # Option 3: Run only sensitivity study (uncomment if needed)
 # python -m src.experiments.sensitivity_study \
 #     --models SASRec LightGCN SGL \
-#     --datasets ml-100k amazon-beauty \
+#     --datasets ml-100k amazon-beauty steam \
 #     --embedding_sizes 32 64 128 \
 #     --n_runs 1
 

@@ -187,10 +187,11 @@ Each model YAML file contains optimized hyperparameters from the original papers
 
 ## Datasets
 
-| Dataset | Users | Items | Interactions |
-|---------|-------|-------|--------------|
-| ml-100k | 943 | 1,682 | ~100,000 |
-| amazon-beauty | ~22K | ~12K | ~200K |
+| Dataset | Users | Items | Interactions | Domain |
+|---------|-------|-------|--------------|--------|
+| ml-100k | 943 | 1,682 | ~100,000 | Movies |
+| amazon-beauty | ~22K | ~12K | ~200K | E-commerce |
+| steam | ~12K | ~5K | ~200K | Video Games |
 
 Datasets are downloaded automatically by RecBole on first run.
 
